@@ -1,36 +1,819 @@
-%nav.navbar
-  %li 新規登録(無料)
-  %li ログイン
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .btn-group.navbar-right
+      %button.btn.btn-default.navbar-btn 新規登録(無料)
+      %button.btn.btn-default.navbar-btn ログイン
 
-%h1 読書メーター
-%h2 読んだ本を記録して、新しい本に出会おう
-%p
-  読書メーターは読んだページ数や冊数などの読書量をグラフにして読書記録をしたり、
-  日本中の読書家さんたちとコミュニケーションができるサービスです。
-  %a 詳細
+.container
+  .row
+    .col-md-8
+      %h1.navbar-brand 読書メーター
+      %h2 読んだ本を記録して、新しい本に出会おう
+      %p
+        読書メーターは読んだページ数や冊数などの読書量をグラフにして読書記録をしたり、
+        日本中の読書家さんたちとコミュニケーションができるサービスです。
+        %a 詳細
 
-%img （図：グラフ）
+      = image_tag asset_path("img_mainvisual.gif"), alt: "読書メーター - あなたの読書量をグラフで記録・管理"
 
-%h3 新規登録はこちらから！
+    .col-md-4
+      %h3 新規登録はこちらから！
 
-%form
-  %input お名前・ニックネーム
-  %input パスワード(半角英数4文字以上)
-  %input メールアドレス
-  %input 男性
-  %input 女性
-  %input 今すぐ登録(無料)
+      %form
+        .form-group
+          %input.form-control(type="text" placeholder="お名前・ニックネーム")
+        .form-group
+          %input.form-control(type="password" placeholder="パスワード(半角英数4文字以上)")
+        .form-group
+          %input.form-control(type="email" placeholder="メールアドレス")
+        .form-group
+          .col-md-5
+            %label.radio-inline
+              %input(type="radio") 男性
+            %label.radio-inline
+              %input(type="radio") 女性
+          .col-md-7
+            %button.btn.btn-success.btn-lg.btn-block 今すぐ登録(無料)
 
-%p Google・Facebook・Twitterのアカウントを使うと、すぐに新規登録 or ログインできます。
+      .row
+        .col-md-12
+          .sns-login-message Google・Facebook・Twitterのアカウントを使うと、すぐに新規登録 or ログインできます。
 
-%a （図：Googleで新規登録）
-%a （図：facebookで新規登録）
-%a （図：twitterで新規登録）
+      .row
+        .col-md-12
+          .button_login_sns.google
+            = link_to image_tag("btn_google_signup.png", alt: "Googleで新規登録")
+      .row
+        .col-md-12
+          .button_login_sns.facebook
+            = link_to image_tag("btn_facebook_signup.png", alt: "facebookで新規登録")
+      .row
+        .col-md-12
+          .button_login_sns.twitter
+            = link_to image_tag("btn_twitter_signup.png", alt: "twitterで新規登録")
 
-99,999,999 件の感想・レビュー
+  .row
+    .col-md-12
+      %p#counter
+        %span 1
+        %span 3
+        %i ,
+        %span 2
+        %span 2
+        %span 0
+        %i ,
+        %span 9
+        %span 3
+        %span 1
+        %span.review 件の感想・レビュー
 
-%h1 Top#index
-%p Find me in app/views/top/index.html.haml
-%h2 トップページです
+  .row
+    .col-md-12
+      %ul.nav.nav-tabs
+        %li.active= link_to 'トップ'
+        %li= link_to '読書メーターとは'
+        %li= link_to '本ランキング'
+        %li= link_to '作家ランキング'
 
+  .row
+    .col-md-10.col-md-push-1
+      %form
+        #search-book.input-group
+          %input.form-control(type="text" placeholder="本のタイトル・著者名を入力")
+          %span.input-group-btn
+            %button.btn.btn-success(type="submit")
+              %i.glyphicon.glyphicon-search
+              本を検索
 
+  .row
+    .col-md-12
+      .list-group
+        = link_to '09/14：【締切間近！献本】岩城けい著「Masato」をプレゼント！応募はこちらから！', {}, { class: 'list-group-item' }
+        = link_to '09/05：あなたの今年最高の1冊は? 本の情報誌『ダ・ヴィンチ』BOOK OF THE YEAR 2015特集!', {}, { class: 'list-group-item' }
+
+  .row
+    .col-md-8
+      %h3 注目の本
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers.label.label-warning 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+      %h3 人気の本ランキング
+      %h5 文庫
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 単行本
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 コミック
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 ライトノベル
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 その他
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h3 話題の本ランキング
+      %h5 文庫
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 単行本
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 コミック
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 ライトノベル
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 その他
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h3 ８月のランキング
+      %h5 書籍／文庫
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 ライトノベル
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+      %h5 コミック
+      .row
+        .col-md-12
+          .interest-books
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+            .book-box
+              .book-box-image
+                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+              .book-box-title
+                = link_to '下町ロケット'
+              .book-box-author
+                = link_to '池井戸潤'
+              %span.readers 10616登録
+          .row
+            .col-md-12
+              = link_to 'もっと見る', {}, { class: 'pull-right more-link' }
+
+      .row
+        .col-md-12.text-center
+          = link_to "読書記録をはじめる(無料)"
+          .button_login_sns.google
+            = link_to image_tag("btn_google_signup.png", alt: "Googleで新規登録")
+          .button_login_sns.facebook
+            = link_to image_tag("btn_facebook_signup.png", alt: "facebookで新規登録")
+          .button_login_sns.twitter
+            = link_to image_tag("btn_twitter_signup.png", alt: "twitterで新規登録")
+
+    .col-md-4
+      .row.well
+        %h4 ログイン
+        %form
+          %form-group
+            %label メールアドレス
+            %input.form-control
+          %form-group
+            %label パスワード
+            %input.form-control(type="password")
+          .checkbox
+            %label
+              %input(type="checkbox")
+              次回から自動ログイン
+          %form-group
+            %button.btn.btn-success.bnt-sm(type="submit") ログイン
+        .row
+          .col-md-12
+            = link_to '※パスワード忘れた'
+        .row
+          .col-md-12
+            = link_to '※その他のサービスでログイン'
+
+      .row
+        .col-md-12
+          = link_to '出版社・書店・著者の皆様へ', {}, { class: 'pull-right' }
+
+      .row.well
+        %h4 人気の作家
+        .popular-writer
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+          = link_to '道尾秀介', {}, { class: 'author-box' }
+          = link_to '伊坂幸太郎', {}, { class: 'author-box' }
+          = link_to '貴志祐介', {}, { class: 'author-box' }
+
+      .row.well
+        %h4 2015年本屋大賞作品
+        .award-books
+          .book-box
+            .book-box-image
+              = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+            .book-box-title
+              = link_to '下町ロケット'
+            .book-box-author
+              = link_to '池井戸潤'
+          .book-box
+            .book-box-image
+              = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+            .book-box-title
+              = link_to '下町ロケット'
+            .book-box-author
+              = link_to '池井戸潤'
+        %h4 2015年本屋大賞ノミネート作品
+        .award-books
+          .book-box
+            .book-box-image
+              = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+            .book-box-title
+              = link_to '下町ロケット'
+            .book-box-author
+              = link_to '池井戸潤'
+          .book-box
+            .book-box-image
+              = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+            .book-box-title
+              = link_to '下町ロケット'
+            .book-box-author
+              = link_to '池井戸潤'
+          .book-box
+            .book-box-image
+              = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
+            .book-box-title
+              = link_to '下町ロケット'
+            .book-box-author
+              = link_to '池井戸潤'
+
+  .row
+    .col-md-12
+      %footer
+        %p &copy; Company 2015

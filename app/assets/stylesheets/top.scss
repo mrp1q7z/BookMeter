@@ -1,3 +1,180 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// debug
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+  //border: 1px solid lightgreen;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.navbar-brand {
+  background: image-url("logo_iruka.png") no-repeat left center;
+  color: rgba( 255, 255, 255, 0 );
+  width: 100%;
+}
+
+.sns-login-message {
+  margin: 1em 0;
+}
+
+#search-book {
+  margin: 1em 0;
+}
+
+/*
+.readers {
+  @extend .label;
+  @extend .label-warning;
+}
+
+.interest-books {
+}
+*/
+
+.book-box {
+  width: 150px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.author-box {
+  width: 100px;
+  display: inline-block;
+  border: 1px solid lightgray;
+  text-align: center;
+  padding: 5px 0;
+  margin-bottom: 10px;
+}
+
+// SNSでログインボタン
+.button_login_sns {
+  margin: 0 0 15px;
+  width: 330px;
+}
+.button_login_sns a {
+  border-radius: 3px;
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  -webkit-box-shadow: 0px 3px 3px #d4eed1;
+  -moz-box-shadow: 0px 3px 3px #d4eed1;
+  box-shadow: 0px 3px 3px #d4eed1;
+}
+.button_login_sns.facebook a {
+  border: 1px solid #3f5382;
+  background: #354c7f;
+  background: linear-gradient(#5b74a4, #354c7f);
+  background: -moz-linear-gradient(top, #5b74a4, #354c7f);
+  background: -webkit-gradient(linear, left top, left bottom, from(#5b74a4), to(#354c7f));
+}
+.button_login_sns.twitter a {
+  border: 1px solid #349ce3;
+  background: #3fa8e9;
+  background: linear-gradient(#65c4f1, #3fa8e9);
+  background: -moz-linear-gradient(top, #65c4f1, #3fa8e9);
+  background: -webkit-gradient(linear, left top, left bottom, from(#65c4f1), to(#3fa8e9));
+}
+.button_login_sns.google a {
+  border: 1px solid #ce2a1f;
+  background: #d4392a;
+  background: linear-gradient(#e3604f, #d4392a);
+  background: -moz-linear-gradient(top, #e3604f, #d4392a);
+  background: -webkit-gradient(linear, left top, left bottom, from(#e3604f), to(#d4392a));
+}
+.button_login_sns.facebook a:hover {
+  border: 1px solid #6d81b3;
+  background: #486cc0;
+  background: linear-gradient(#7093d5, #486cc0);
+  background: -moz-linear-gradient(top, #7093d5, #486cc0);
+  background: -webkit-gradient(linear, left top, left bottom, from(#7093d5), to(#486cc0));
+}
+.button_login_sns.twitter a:hover {
+  border: 1px solid #61b5ee;
+  background: #5fbaee;
+  background: linear-gradient(#86d1f4, #5fbaee);
+  background: -moz-linear-gradient(top, #86d1f4, #5fbaee);
+  background: -webkit-gradient(linear, left top, left bottom, from(#86d1f4), to(#5fbaee));
+}
+.button_login_sns.google a:hover {
+  border: 1px solid #d8564e;
+  background: #dc6357;
+  background: linear-gradient(#e88274, #dc6357);
+  background: -moz-linear-gradient(top, #e88274, #dc6357);
+  background: -webkit-gradient(linear, left top, left bottom, from(#e88274), to(#dc6357));
+}
+.button_login_sns a img {
+  height: 50px;
+  width: 200px;
+  max-width: 100%;
+}
+.button_login_sns.facebook a img {
+  margin-left: 18px;
+}
+.button_login_sns.twitter a img {
+  margin-left: 10px;
+}
+.button_login_sns.google a img {
+  margin-left: 9px;
+}
+
+// レビュー件数カウンター
+#counter {
+  text-align:center;
+}
+#counter span {
+  background: url(http://img.bookmeter.com/image/donation/bg_counter.png) no-repeat left top;
+  display: inline-block;
+  width: 47px;
+  padding: 22px 0;
+  margin-right: 3px;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  vertical-align: bottom;
+  zoom: 1;
+}
+#counter i {
+  display: inline-block;
+  *display:inline; // IE6, 7
+  padding: 32px 3px 20px 0;
+  color: #6b932d;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: bold;
+  vertical-align: top;
+  *vertical-align: bottom; // IE6, 7
+}
+#counter .review {
+  background: none;
+  width: auto;
+  font-size: 12px;
+  color: #888;
+  font-weight: normal;
+  padding: 24px 0 30px 3px;
+}
+
+// もっと見るのリンク
+.more-link {
+  display: inline-block;
+  position: relative;
+  margin: 0 15px 0 0;
+  padding: 5px 0 0 10px;
+  width: 90px;
+  height: 30px;
+  background-color: #bfbfbf;
+}
+.more-link:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-left-color: #bfbfbf;
+}
