@@ -97,94 +97,15 @@
       .row
         .col-md-12
           .interest-books
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers.label.label-warning 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
-            .book-box
-              .book-box-image
-                = image_tag  'downcity_rocket.jpg', alt:'下町ロケット'
-              .book-box-title
-                = link_to '下町ロケット'
-              .book-box-author
-                = link_to '池井戸潤'
-              %span.readers 10616登録
+            - @books.each do |book|
+              .book-box
+                .book-box-image
+                  = image_tag  'downcity_rocket.jpg', alt: book.title
+                .book-box-title
+                  = link_to book.title
+                .book-box-author
+                  = link_to book.authors.first.name
+                %span.readers.label.label-warning 10616登録
       %h3 人気の本ランキング
       %h5 文庫
       .row
