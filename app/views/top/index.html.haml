@@ -438,25 +438,7 @@
     .col-md-4
       .row.well
         %h4 ログイン
-        %form
-          %form-group
-            %label メールアドレス
-            %input.form-control
-          %form-group
-            %label パスワード
-            %input.form-control(type="password")
-          .checkbox
-            %label
-              %input(type="checkbox")
-              次回から自動ログイン
-          %form-group
-            %button.btn.btn-success.bnt-sm(type="submit") ログイン
-        .row
-          .col-md-12
-            = link_to '※パスワード忘れた'
-        .row
-          .col-md-12
-            = link_to '※その他のサービスでログイン'
+        = render "login"
 
       .row
         .col-md-12

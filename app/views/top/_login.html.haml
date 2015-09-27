@@ -1,0 +1,20 @@
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-group
+    = f.label :email, 'メールアドレス'
+    = f.email_field :email, autofocus: true, class: "form-control"
+  .form-group
+    = f.label :password, 'パスワード'
+    = f.password_field :password, autocomplete: "off", class: "form-control"
+  - if devise_mapping.rememberable?
+    .checkbox
+      %label
+        = f.check_box :remember_me
+        次回から自動ログイン
+  .form-group
+    = f.submit "ログイン", class: "btn btn-success btn-sm"
+  .row
+    .col-md-12
+      = link_to '※パスワード忘れた'
+  .row
+    .col-md-12
+      = link_to '※その他のサービスでログイン'
