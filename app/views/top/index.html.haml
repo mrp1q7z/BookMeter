@@ -19,21 +19,7 @@
     .col-md-4
       %h3 新規登録はこちらから！
 
-      %form
-        .form-group
-          %input.form-control(type="text" placeholder="お名前・ニックネーム")
-        .form-group
-          %input.form-control(type="password" placeholder="パスワード(半角英数4文字以上)")
-        .form-group
-          %input.form-control(type="email" placeholder="メールアドレス")
-        .form-group
-          .col-md-5
-            %label.radio-inline
-              %input(type="radio") 男性
-            %label.radio-inline
-              %input(type="radio") 女性
-          .col-md-7
-            %button.btn.btn-success.btn-lg.btn-block 今すぐ登録(無料)
+      = render 'signup'
 
       .row
         .col-md-12

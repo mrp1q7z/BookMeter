@@ -1,0 +1,16 @@
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = devise_error_messages!
+  .form-group
+    = f.text_field :name, autofocus: true, class: "form-control", placeholder: "お名前・ニックネーム"
+  .form-group
+    = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "パスワード(半角英数字4文字以上)"
+  .form-group
+    = f.email_field :email, autofocus: true, class: "form-control", placeholder: "メールアドレス"
+  .form-group
+    .col-md-5
+      %label.radio-inline
+        %input(type="radio") 男性
+      %label.radio-inline
+        %input(type="radio") 女性
+    .col-md-7
+      = f.submit "今すぐ登録(無料)", class: "btn btn-success btn-lg btn-block"
