@@ -9,8 +9,10 @@
   .form-group
     .col-md-5
       %label.radio-inline
-        %input(type="radio") 男性
+        = f.radio_button :sex, 'male'
+        男性
       %label.radio-inline
-        %input(type="radio") 女性
+        = f.radio_button :sex, 'female'
+        女性
     .col-md-7
       = f.submit "今すぐ登録(無料)", class: "btn btn-success btn-lg btn-block"
