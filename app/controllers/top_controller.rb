@@ -1,5 +1,10 @@
 class TopController < ApplicationController
   def index
+    if current_user
+      redirect_to home_index_url
+      return
+    end
+
     # 注目の本
     @attention_books = Book.all
 
