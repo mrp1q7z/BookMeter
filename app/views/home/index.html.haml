@@ -1,2 +1,43 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .btn-group.navbar-right
+      = link_to '新規登録(無料)', new_user_registration_path, { class: "btn btn-default navbar-btn" }
+      = link_to 'ログイン', new_user_session_path, { class: "btn btn-default navbar-btn" }
+
+.container
+  .row
+    .col-md-8
+      %h1.navbar-brand 読書メーター
+
+  .row
+    .col-md-12
+      %ul.nav.nav-tabs
+        %li.active= link_to 'HOME'
+        %li= link_to 'マイページ'
+        %li= link_to '共読'
+        %li= link_to 'お気に入りの感想'
+        %li= link_to '相性'
+        %li= link_to 'その他'
+
+  .row
+    .col-md-10.col-md-push-1
+      %form
+        #search-book.input-group
+          %input.form-control(type="text" placeholder="本のタイトル・著者名を入力")
+          %span.input-group-btn
+            %button.btn.btn-success(type="submit")
+              %i.glyphicon.glyphicon-search
+              本を検索
+
+  .row
+    .col-md-4
+      .well
+        %h4= current_user.email
+        = link_to 'プロフィール編集', edit_user_registration_path
+    .col-md-8
+      %h4 新着情報
+
+  .row
+    .col-md-12
+      %footer
+        %p &copy; Company 2015
