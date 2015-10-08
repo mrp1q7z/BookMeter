@@ -5,22 +5,19 @@
     .col-md-12.well= @keywd
   .row
     .col-md-12
-      - @res.items.each do |item|
-        - page_url = "http://www.amazon.co.jp/dp/#{item.get('ASIN')}"
-        - element = item.get_element("ItemAttributes")
+      - @res.each do |item|
         .row.well
-          %h5= link_to element.get("Title"), page_url, target: "_blank"
-          - image = item.get_hash('SmallImage')
-          - if image
-            = link_to image_tag(item.get_hash('SmallImage')["URL"]), page_url, class: "pull-left", target: "_blank"
+          %h5= link_to item.title, item.page_url, target: "_blank"
+          - if item.image_url
+            = link_to image_tag(item.image_url), item.page_url, class: "pull-left", target: "_blank"
           - else
-            = link_to image_tag("no_image.png", size: "56x75"), page_url, class: "pull-left", target: "_blank"
+            = link_to image_tag("no_image.png", size: "56x75"), item.page_url, class: "pull-left", target: "_blank"
           %dl.dl-horizontal.pull-left
             %dt 著者
-            %dd= element.get_array("Author").join(", ")
+            %dd= item.authors
             %dt 出版社
-            %dd= element.get("Manufacturer")
+            %dd= item.publish
             %dt 出版日
-            %dd= element.get("PublicationDate")
+            %dd= item.publication_date
             %dt ISBN
-            %dd= element.get('ISBN')
+            %dd= item.isbn
