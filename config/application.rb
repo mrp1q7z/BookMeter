@@ -9,6 +9,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require "amazon/ecs"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -31,5 +32,11 @@ module BookMeter
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    Amazon::Ecs.options = {
+        :associate_tag => 'mrp1q7z-22',
+        :AWS_access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+        :AWS_secret_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
   end
 end

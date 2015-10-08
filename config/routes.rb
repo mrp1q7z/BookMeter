@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'books/search'
+
   get 'home/index'
 
   devise_for :users

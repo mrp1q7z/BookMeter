@@ -1,0 +1,22 @@
+%h1 Books#search
+%p Find me in app/views/books/search.html.haml
+.container
+  .row
+    .col-md-12.well= @keywd
+  .row
+    .col-md-12
+      - @res.items.each do |item|
+        - page_url = "http://www.amazon.co.jp/dp/#{item.get('ASIN')}"
+        - element = item.get_element("ItemAttributes")
+        .row.well
+          %h5= link_to element.get("Title"), page_url, target: "_blank"
+          = link_to image_tag(item.get_hash('SmallImage')["URL"]), page_url, class: "pull-left", target: "_blank"
+          %dl.dl-horizontal.pull-left
+            %dt 著者
+            %dd= element.get_array("Author").join(", ")
+            %dt 出版社
+            %dd= element.get("Manufacturer")
+            %dt 出版日
+            %dd= element.get("PublicationDate")
+            %dt ISBN
+            %dd= element.get('ISBN')

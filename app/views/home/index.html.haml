@@ -21,13 +21,11 @@
 
   .row
     .col-md-10.col-md-push-1
-      %form
+      = form_tag({ controller: :books, action: :search }, { method: :get }) do
         #search-book.input-group
-          %input.form-control(type="text" placeholder="本のタイトル・著者名を入力")
+          = text_field_tag :keywd, '', class: "form-control", placeholder: "本のタイトル・著者名を入力"
           %span.input-group-btn
-            %button.btn.btn-success(type="submit")
-              %i.glyphicon.glyphicon-search
-              本を検索
+            = submit_tag '本を検索', { class: "button btn btn-success" }
 
   .row
     .col-md-4
