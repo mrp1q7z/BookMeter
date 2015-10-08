@@ -10,7 +10,11 @@
         - element = item.get_element("ItemAttributes")
         .row.well
           %h5= link_to element.get("Title"), page_url, target: "_blank"
-          = link_to image_tag(item.get_hash('SmallImage')["URL"]), page_url, class: "pull-left", target: "_blank"
+          - image = item.get_hash('SmallImage')
+          - if image
+            = link_to image_tag(item.get_hash('SmallImage')["URL"]), page_url, class: "pull-left", target: "_blank"
+          - else
+            = link_to image_tag("no_image.png", size: "56x75"), page_url, class: "pull-left", target: "_blank"
           %dl.dl-horizontal.pull-left
             %dt 著者
             %dd= element.get_array("Author").join(", ")
