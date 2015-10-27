@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-md-8
+      %h1.navbar-brand 読書メーター
+  .row
+    .col-md-10.col-md-push-1
+      = form_tag({ controller: :books, action: :search }, { method: :get }) do
+        #search-book.input-group
+          = text_field_tag :keywd, '', class: "form-control", placeholder: "本のタイトル・著者名を入力"
+          %span.input-group-btn
+            = submit_tag '本を検索', { class: "button btn btn-success" }
+  .row
+    .col-md-12
+      %h3= link_to @book.title, @book.amazon_url, target: "_blank"
+  .row
+    .col-md-6
+      - if @book.image_url
+        = link_to image_tag(@book.image_url), @book.amazon_url, target: "_blank", class: "pull-left"
+      - else
+        = link_to image_tag("no_image.png", size: "56x75"), @book.amazon_url, class: "pull-left"
+    .col-md-6
+      %p= link_to '読んだ本に追加', '#', class: 'btn btn-default'
+      %p= link_to '読んでる本に追加', '#', class: 'btn btn-default'
+      %p= link_to '積読本に追加', '#', class: 'btn btn-default'
+      %p= link_to '読みたい本に追加', '#', class: 'btn btn-default'

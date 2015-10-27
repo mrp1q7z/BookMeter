@@ -3,9 +3,20 @@ class BooksController < ApplicationController
     @keywd = params[:keywd]
     Amazon::Ecs.debug = true
     @res = AmazonBook.find(@keywd, params[:page])
-    # dummy = []
-    # (@res.total_results - @res.item_page).times { dummy << "" }
-    # @res.concat(dummy)
-    # @res = Kaminari.paginate_array(@res).page(params[:page]).per(@res.item_page)
+  end
+
+  def show
+    @book = AmazonBook.new
+    book = amazon_book_params
+    @book.title = book[:title]
+    @book.asin = book[:asin]
+    @book.amazon_url = "http://www.amazon.co.jp/dp/#{@book.asin}"
+    @book.image_url = book[:image_url]
+  end
+
+  private
+
+  def amazon_book_params
+    params.require(:amazon_book).permit(:asin, :title, :image_url)
   end
 end

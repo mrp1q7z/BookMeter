@@ -1,7 +1,7 @@
 class AmazonBook
   include ActiveModel::Model
 
-  attr_accessor :isbn, :asin, :title, :image_url, :authors, :publish, :publication_date, :page_url
+  attr_accessor :isbn, :asin, :title, :image_url, :authors, :publish, :publication_date, :amazon_url
 
   def self.find(keyword, page)
     res = Amazon::Ecs.item_search(keyword,
@@ -15,13 +15,14 @@ class AmazonBook
       image = item.get_hash('SmallImage')
 
       book = AmazonBook.new()
-      book.page_url = "http://www.amazon.co.jp/dp/#{item.get('ASIN')}"
+      book.amazon_url = "http://www.amazon.co.jp/dp/#{item.get('ASIN')}"
       book.title = element.get("Title")
       book.image_url = item.get_hash('SmallImage')["URL"] if image
       book.authors = element.get_array("Author").join(", ")
       book.publish = element.get("Manufacturer")
       book.publication_date = element.get("PublicationDate")
       book.isbn = element.get('ISBN')
+      book.asin = item.get('ASIN')
       results << book
     end
     # AmazonECS item_page に指定できるのは1〜10まで

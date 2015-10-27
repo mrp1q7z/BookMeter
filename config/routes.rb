@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'books/search'
+  # get 'books/search'
+  # get 'books/show/:id'
+  resources :books do
+    collection do
+      get 'search'
+    end
+  end
+  post 'books/:id' => 'books#show'
 
   get 'home/index'
 

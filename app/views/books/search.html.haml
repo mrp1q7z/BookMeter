@@ -7,20 +7,24 @@
     .col-md-12
       - @res.each do |item|
         .row.well
-          %h5= link_to item.title, item.page_url, target: "_blank"
-          - if item.image_url
-            = link_to image_tag(item.image_url), item.page_url, class: "pull-left", target: "_blank"
-          - else
-            = link_to image_tag("no_image.png", size: "56x75"), item.page_url, class: "pull-left", target: "_blank"
-          %dl.dl-horizontal.pull-left
-            %dt 著者
-            %dd= item.authors
-            %dt 出版社
-            %dd= item.publish
-            %dt 出版日
-            %dd= item.publication_date
-            %dt ISBN
-            %dd= item.isbn
+          = form_for item, url: book_path(item.asin), html: { name: item.asin } do |f|
+            %h5= f.submit item.title
+            - if item.image_url
+              = image_submit_tag item.image_url, class: "pull-left"
+            - else
+              = image_submit_tag "no_image.png", width: "56", height: "75", class: "pull-left"
+            %dl.dl-horizontal.pull-left
+              %dt 著者
+              %dd= item.authors
+              %dt 出版社
+              %dd= item.publish
+              %dt 出版日
+              %dd= item.publication_date
+              %dt ISBN
+              %dd= item.isbn
+            = f.hidden_field :asin
+            = f.hidden_field :title
+            = f.hidden_field :image_url
   .row
     .col-md-12
       = paginate @res
