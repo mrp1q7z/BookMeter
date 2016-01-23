@@ -31,6 +31,10 @@ class AmazonBook
     add_dummy_array(results, page, res.total_results, res.items.size)
   end
 
+  def amazon_url
+    "http://www.amazon.co.jp/dp/#{self.asin}"
+  end
+
   private
 
   def self.add_dummy_array(results, page, total_results, page_size)

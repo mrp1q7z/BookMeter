@@ -19,7 +19,7 @@
       - else
         = link_to image_tag("no_image.png", size: "56x75"), @book.amazon_url, class: "pull-left"
     .col-md-6
-      %p= link_to '読んだ本に追加', '#', class: 'btn btn-default'
+      %p= link_to '読んだ本に追加', add_read_book_path, class: 'btn btn-default'
       %p= link_to '読んでる本に追加', '#', class: 'btn btn-default'
       %p= link_to '積読本に追加', '#', class: 'btn btn-default'
       %p= link_to '読みたい本に追加', '#', class: 'btn btn-default'

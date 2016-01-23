@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-  # get 'books/search'
-  # get 'books/show/:id'
-  resources :books do
+  resources :books, only: :show do
     collection do
       get 'search'
     end
+    member do
+      post 'add_read'
+      post 'show'
+    end
   end
-  post 'books/:id' => 'books#show'
 
   get 'home/index'
 
