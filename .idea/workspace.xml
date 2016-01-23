@@ -964,7 +964,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453531255838</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="本の検索にページング機能を追加">
+      <created>1453531281072</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1453531281072</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="ToolWindowManager">
